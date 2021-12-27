@@ -1,10 +1,32 @@
+@font-face {
+    font-family: "Poppins Reguler";
+    src: url('../fonts/poppins-medium-webfont.woff2') format('woff2'),
+         url('../fonts/poppins-medium-webfont.woff') format('woff');
+  }
+
+@font-face {
+	font-family: "Poppins Bold";
+	src: url('../fonts/poppins-semibold-webfont.woff2') format('woff2'),
+         url('../fonts/poppins-semibold-webfont.woff') format('woff');
+}
+
 html {
 	position: relative;
+	font-family: "Poppins Reguler";
 }
 
 body {
-	margin-bottom: 100px;
+	margin-bottom: 13px;
 	margin-top: 26px;
+	font-family: "Poppins Reguler";
+}
+
+h2 {
+	font-family: "Poppins Bold";
+}
+
+.navbar .nav li.icon {
+	margin-top: -3px;
 }
 
 .jumbotron {
@@ -24,10 +46,12 @@ body {
 .jumbotron h1 {
 	/*font-size: 46px;*/
 	text-shadow: 1px 1px 16px rgba(0, 0, 0, 0.9);
+	font-family: "Poppins Bold";
 }
 
 .jumbotron p {
 	text-shadow: 1px 1px 16px rgba(0, 0, 0, 0.9);
+	font-family: "Poppins Bold";
 }
 
 hr {
@@ -37,22 +61,264 @@ hr {
 }
 
 .about {
-	min-height: 523px;
+	max-height: 609px;
+	overflow: hidden;
+}
+
+.about .pAtas {
+	font-size: 1.01em;
+	opacity: 0;
+	transition: 1.3s;
+	transform: translate(0, 30px);
+	margin-top: 3px;
 }
 
 .about .pKiri, .about .pKanan {
 	opacity: 0;
-	transform: translate(-50px, 0);
+	transform: translate(-30px, 0);
 	transition: 1.3s;
+	font-size: 1.01em;
+	margin-top: 6px;
+	margin-bottom: 20px;
+	padding: 0 10px 0 16px;
 }
 
 .about .pKanan {
-	transform: translate(50px, 0);
+	transform: translate(30px, 0);
+	/*color: #5c5c5c;*/
+	font-size: 1.01em;
+	padding: 0 10px 0 16px;
 }
 
-.pKiri.pMuncul, .pKanan.pMuncul {
+.about .pAtas.pMuncul, .about .pKiri.pMuncul, .about .pKanan.pMuncul {
 	opacity: 1;
 	transform: translate(0, 0);
+}
+
+.about .body.satu, 
+.about .body.dua, 
+.about .body.tiga, 
+.about .body.empat {
+	background-color: #ddd;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/*height: 100vh;*/
+	overflow: hidden;
+}
+
+.grafik {
+	width: 190px;
+	height: 95px;
+	position: absolute;
+	left: 50.9px;
+	color: #02bc82;
+	/*font-size: 12.6px;*/
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	box-sizing: border-box;
+	transition: 1.5s;
+	overflow: hidden;
+
+	opacity: 1;
+
+	--percentage: 0;
+	--fill: #02bc82;
+
+}
+
+.bar {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 50.9px;
+	width: 190px;
+	height: 190px;
+	border: 30px solid;
+	border-color: var(--fill) var(--fill) #444 #444;
+	border-radius: 50%;
+}
+.bar.satu {
+	transform: rotate( calc( 1deg * ( -207 + var(--percentage) * 1.8 ) ) ); 
+} /* (satu) -207 & -27, -45 (normal) */ 
+
+.satu.grafikGerak {
+	animation: animaGrafikSatu 1.5s 1s forwards;
+}
+
+@keyframes animaGrafikSatu {
+	0% {
+		transform: rotate( calc( 1deg * ( -207 + var(--percentage) * 1.8 ) ) ); /* kosongnya */ 
+	}
+	29% {
+		transform: rotate( calc( 1deg * ( -27 + var(--percentage) * 1.8 ) ) ); /* penuh */
+	}
+	56% {
+		transform: rotate( calc( 1deg * ( -65 + var(--percentage) * 1.8 ) ) ); /* kurang -20 */
+	}
+	100% {
+		transform: rotate( calc( 1deg * ( -45 + var(--percentage) * 1.8 ) ) ); /* normal -45 */
+	}
+}
+
+.bar.dua {
+	transform: rotate( calc( 1deg * ( -189 + var(--percentage) * 1.8 ) ) ); 
+} /* (dua) -189 & -9, -45 (normal) */
+
+.dua.grafikGerak {
+	animation: animaGrafikDua 1.5s 1s forwards;
+}
+
+@keyframes animaGrafikDua {
+	0% {
+		transform: rotate( calc( 1deg * ( -189 + var(--percentage) * 1.8 ) ) ); /* kosongnya */ 
+	}
+	29% {
+		transform: rotate( calc( 1deg * ( -9 + var(--percentage) * 1.8 ) ) ); /* penuh */
+	}
+	56% {
+		transform: rotate( calc( 1deg * ( -65 + var(--percentage) * 1.8 ) ) ); /* kurang -20 */
+	}
+	100% {
+		transform: rotate( calc( 1deg * ( -45 + var(--percentage) * 1.8 ) ) ); /* normal -45 */
+	}
+}
+
+.bar.tiga {
+	transform: rotate( calc( 1deg * ( -167 + var(--percentage) * 1.8 ) ) ); 
+} /* (tiga) -167 & 12.5, -45 (normal) */
+
+.tiga.grafikGerak {
+	animation: animaGrafikTiga 1.5s 1s forwards;
+}
+
+@keyframes animaGrafikTiga {
+	0% {
+		transform: rotate( calc( 1deg * ( -167 + var(--percentage) * 1.8 ) ) ); /* kosongnya */ 
+	}
+	29% {
+		transform: rotate( calc( 1deg * ( 12.5 + var(--percentage) * 1.8 ) ) ); /* penuh */
+	}
+	56% {
+		transform: rotate( calc( 1deg * ( -65 + var(--percentage) * 1.8 ) ) ); /* kurang -20 */
+	}
+	100% {
+		transform: rotate( calc( 1deg * ( -45 + var(--percentage) * 1.8 ) ) ); /* normal -45 */
+	}
+}
+
+.bar.empat {
+	transform: rotate( calc( 1deg * ( -135 + var(--percentage) * 1.8 ) ) ); 
+} /* (empat) -135 & 45, -45 (normal) */
+
+.empat.grafikGerak {
+	animation: animaGrafikEmpat 1.5s 1s forwards;
+}
+
+@keyframes animaGrafikEmpat {
+	0% {
+		transform: rotate( calc( 1deg * ( -135 + var(--percentage) * 1.8 ) ) ); /* kosongnya */ 
+	}
+	29% {
+		transform: rotate( calc( 1deg * ( 45 + var(--percentage) * 1.8 ) ) ); /* penuh */
+	}
+	56% {
+		transform: rotate( calc( 1deg * ( -65 + var(--percentage) * 1.8 ) ) ); /* kurang -20 */
+	}
+	100% {
+		transform: rotate( calc( 1deg * ( -45 + var(--percentage) * 1.8 ) ) ); /* normal -45 */
+	}
+}
+
+.clear {
+	margin-top: 94px;
+	width: 100%;
+	border-top: 20px solid white;
+	border-bottom: 100px solid white;
+}
+
+.body p {
+	position: absolute;
+	top: 80px;
+	z-index: 1;
+	font-size: 12.9px;
+	color: #444;
+}
+
+.body p {
+	opacity: 0;
+}
+
+.body .skill.muncul {
+	animation: animaMunculSkill 0.6s forwards;
+}
+
+@keyframes animaMunculSkill {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	} 
+	50% {
+		opacity: 1;
+		transform: scale(1.03);
+	} 
+	100% {
+		opacity: 1;
+		transform: scale(1.0);
+	}
+}
+
+.body .anima {
+	position: absolute;
+	top: 26px;
+	left: 119px;
+	color: #02bc82;
+	filter: drop-shadow(1px 1px 0.26px #444);
+	opacity: 0;
+}
+
+.anima.muncul {
+	animation: animaScale 0.7s 2.5s forwards;
+}
+
+@keyframes animaScale {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1.0);
+	}
+}
+
+/*.about .body .anima:hover {
+	animation: animaScale 0.6s ease;
+}*/
+
+.body.dua h2 {
+	color: #345af4;
+}
+
+.body.tiga h2 {
+	color: #fcf33f;
+}
+
+.body.empat h2 {
+	color: #fd0002;
+}
+
+.judul-skills hr.h3 {
+	width: 160px;
+	margin-top: -0px;
 }
 
 .portfolio {
@@ -80,26 +346,114 @@ hr {
 }
 
 .contact {
-	min-height: 760px;
+	min-height: 720px;
 }
 
-footer {
-	background-color: rgba(0, 0, 0, 0.8);
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 100px;
-	padding-top: 18px;
+.hr {
+	width: 80%;
+	height: 1px;
+	background-color: black; /*rgba(66, 0, 253, 1)*/;
+	margin: auto;
+}
+
+.trans {
+	width: 170px;
+	height: 20px;
+	background-color: white;
+	margin: -10px auto;
 }
 
 footer p {
-	color: #aaa;
+	font-size: 0.9em;
+	color: rgba(0, 0, 0, 0.5);
+	margin-top: 23px;
 }
 
-footer p i {
-	color: white;
+footer p.kiri {
+	margin-left: -30px;
 }
 
-footer button i {
-	margin-right: 6px;
+footer p.kanan {
+	margin-right: -30px;
+}
+
+footer a img {
+	width: 23px;
+	height: 23px;
+	margin-left: 16px;
+	margin-top: -5px;
+}
+
+footer a img:hover {
+	filter: opacity(80%);
+}
+
+.copyright p {
+	/*margin-top: 26px;*/
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 0.8em;
+	position: absolute;
+	left: 30px;
+	bottom: 11px;
+}
+
+.copyright p.kanan {
+	position: absolute;
+	bottom: 11px;
+	right: 100px;
+}
+
+.copyright img {
+	width: 30px;
+	height: 30px;
+}
+
+.feedback .container-feedback {
+	margin: auto;
+	max-width: 96%;
+	min-height: 400px;
+	outline: 1px solid rgba(66, 0, 253, 0.16);
+	box-shadow: 0px 0px 6px rgba(66, 0, 253, 0.2);
+	/*border-radius: 2%;*/
+	transition: 0.16s;
+	position: relative;
+}
+
+.feedback .container-feedback:hover {
+	cursor: pointer;
+	outline: 1px solid rgba(66, 0, 253, 0.23);
+	box-shadow: 0px 0px 6px rgba(66, 0, 253, 0.4);
+}
+
+.feedback .container-feedback img {
+	width: 73px;
+	height: 73px;
+	position: absolute;
+	top: 7%;
+	left: 40%;
+	outline: 1px solid rgba(66, 0, 253, 0.23);
+	box-shadow: 0px 0px 6px rgba(66, 0, 253, 0.4);
+}
+
+.feedback .container-feedback h4 {
+	/*position: absolute;
+	top: 24%;
+	left: 26%;*/
+	padding-top: 109px;
+	font-size: 1.5em;
+	font-weight: 560;
+}
+
+.feedback .container-feedback p.profesi {
+	margin-top: -7px;
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+.feedback .container-feedback p.feedback {
+	width: 76%;
+	margin: auto;
+	/*background-color: lightgrey;*/
+	color: #5c5c5c;
+	/*font-weight: 600;*/
 }

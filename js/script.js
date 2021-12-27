@@ -26,6 +26,7 @@ $('.page-scroll').on('click', function(e) {
 	$(window).on('load', function() {
 		$('.pKiri').addClass('pMuncul');
 		$('.pKanan').addClass('pMuncul');
+		// $('.pAtas').addClass('pMuncul');
 	});
 
 $(window).scroll(function() {
@@ -53,9 +54,21 @@ $(window).scroll(function() {
 			setTimeout(function() {
 				$('.portfolio .thumbnail').eq(i).addClass('muncul');
 			}, 600 * i );
-
 		});
+	}
 
+	if ( wScroll > $('.about').offset().top - 319 ) {
+
+		// console.log('ok');
+		$('.about .pAtas').addClass('pMuncul');
+	}
+
+	if ( wScroll > $('.about').offset().top - 66 ) {
+
+		// console.log('ok');
+		$('.about .skill').addClass('muncul');
+		$('.about .body .bar').addClass('grafikGerak');
+		$('.anima').addClass('muncul');
 	}
 
 });
